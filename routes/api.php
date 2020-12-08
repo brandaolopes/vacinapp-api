@@ -20,3 +20,5 @@ Route::post('/user', 'UserController@store');
 Route::get('/users/{user}', 'UserController@show');
 Route::patch('/users/{user}', 'UserController@update');
 Route::delete('/users/{user}', 'UserController@destroy');
+
+Route::post('auth/login', 'AuthController@login');
