@@ -31,7 +31,7 @@ class UserController extends Controller
             'name' => $request->input('name'),
             'surname' => $request->input('surname'),
             'email' => $request->input('email'),
-            'password' => $request->input('password'),
+            'password' => bcrypt($request->input('password')),
             'cpf' => $request->input('cpf'),
             'date' => $request->input('date'),
             'gender' => $request->input('gender'),
