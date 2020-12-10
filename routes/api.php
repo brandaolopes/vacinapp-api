@@ -23,7 +23,11 @@ Route::post('/user', 'UserController@store');
 Route::group(['middleware' => 'auth.jwt'], function () {
 
     Route::get('/users', 'UserController@index');
+    Route::post('me', 'ApiController@me');
+
     Route::get('/users/{user}', 'UserController@show');
     Route::patch('/users/{user}', 'UserController@update');
     Route::delete('/users/{user}', 'UserController@destroy');
+    Route::post('logout', 'ApiController@logout');
 });
+

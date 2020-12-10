@@ -34,8 +34,21 @@ public function login(Request $request)
         return response()->json([
             'success' => true,
             'token' => $token,
+            'token_type' => 'bearer',
         ]);
     }
+
+
+    /**
+     * Get the authenticated User.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function me()
+    {
+        return response()->json(auth()->user());
+    }
+
 
     /**
      * @param Request $request
@@ -44,9 +57,9 @@ public function login(Request $request)
      */
     public function logout(Request $request)
     {
-        $this->validate($request, [
+        /* $this->validate($request, [
             'token' => 'required'
-        ]);
+        ]); */
 
         try {
             JWTAuth::invalidate($request->token);
