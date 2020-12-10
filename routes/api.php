@@ -29,5 +29,11 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::patch('/users/{user}', 'UserController@update');
     Route::delete('/users/{user}', 'UserController@destroy');
     Route::post('logout', 'ApiController@logout');
+
+    Route::get('vaccines', 'VaccineController@index');
+    Route::get('vaccines/{id}', 'VaccineController@show');
+    Route::post('vaccines', 'VaccineController@store');
+    Route::put('vaccines/{id}', 'VaccineController@update');
+    Route::delete('vaccines/{id}', 'VaccineController@destroy');
 });
 

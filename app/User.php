@@ -65,4 +65,13 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function vaccines()
+    {
+        return $this->hasMany(Vaccine::class);
+    }
 }

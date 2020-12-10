@@ -57,9 +57,7 @@ public function login(Request $request)
      */
     public function logout(Request $request)
     {
-        /* $this->validate($request, [
-            'token' => 'required'
-        ]); */
+      
 
         try {
             JWTAuth::invalidate($request->token);
