@@ -20,6 +20,8 @@ class CreateVaccinesTable extends Migration
             $table->text('description')->nullable();
             $table->string('batch')->nullable();
             $table->integer('total_doses_number')->default(1);
+            $table->integer('dose')->default(1);
+            $table->enum('life_stage', ['newborn', 'child', 'adolescent', 'adult', 'elder'])->default('adult');
             $table->integer('frequency')->nullable(); //Tempo em dias de duração da imunidade (meses/anos/vida toda) 
             $table->foreign('user_id')
                     ->references('id')

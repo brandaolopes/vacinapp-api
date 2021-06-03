@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'ttl' => env('JWT_TTL', 60),
+    'ttl' => env('JWT_TTL', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -145,12 +145,13 @@ return [
     | A TokenInvalidException will be thrown if any of these claims are not
     | present in the payload.
     |
+    | 'exp' removed due to use of API token in a mobile aplication
+    |
     */
 
     'required_claims' => [
         'iss',
         'iat',
-        'exp',
         'nbf',
         'sub',
         'jti',

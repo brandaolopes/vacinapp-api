@@ -19,11 +19,12 @@ Route::post('login', 'ApiController@login');
 Route::post('/user', 'UserController@store');
 
 
+
 // Rotas protegidas por autenticação:
 Route::group(['middleware' => 'auth.jwt'], function () {
 
     Route::get('/users', 'UserController@index');
-    Route::post('me', 'ApiController@me');
+    Route::get('/me', 'ApiController@me');
 
     Route::get('/users/{user}', 'UserController@show');
     Route::patch('/users/{user}', 'UserController@update');

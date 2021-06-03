@@ -30,7 +30,7 @@ class VaccineController extends Controller
      */
     public function index()
     {
-        return $this->user->vaccines()->get(['title', 'description', 'batch', 'total_doses_number', 'frequency'])->toArray();
+        return $this->user->vaccines()->get(['id', 'title', 'description', 'batch', 'total_doses_number', 'dose', 'life_stage', 'frequency', 'created_at'])->toArray();
     }
 
 
@@ -65,8 +65,8 @@ class VaccineController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|max:255',
-            'description' => 'required',
             'total_doses_number' => 'required|numeric|min:1|max:10',
+            'dose' => 'required|numeric|min:1|max:10',
 
         ]);
 
@@ -75,7 +75,10 @@ class VaccineController extends Controller
         $vaccine->description = $request->description;
         $vaccine->batch = $request->batch;
         $vaccine->total_doses_number = $request->total_doses_number;
+        $vaccine->dose = $request->dose;
+        $vaccine->life_stage = $request->life_stage;
         $vaccine->frequency = $request->frequency;
+        $vaccine->created_at = $request->created_at;
 
         if ($this->user->vaccines()->save($vaccine)){
             return response()->json([

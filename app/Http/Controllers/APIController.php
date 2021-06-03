@@ -69,7 +69,7 @@ public function login(Request $request)
         } catch (JWTException $exception) {
             return response()->json([
                 'success' => false,
-                'message' => 'Sorry, the user cannot be logged out'
+                'message' => 'Sorry, the user cannot be logged out. Message: '.$exception
             ], 500);
         }
     }
