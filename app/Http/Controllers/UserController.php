@@ -34,7 +34,7 @@ class UserController extends Controller
             'password' => bcrypt($request->input('password')),
             'cpf' => $request->input('cpf'),
             'date' => $request->input('date'),
-            'gender' => $request->input('gender'),
+            'gender' => $request->input('gender', 'o'),
             'state' => $request->input('state'),
             'city' => $request->input('city'),
         ]);
@@ -64,7 +64,7 @@ class UserController extends Controller
         $user->surname = $request->input('surname');
         $user->cpf = $request->input('cpf');
         $user->date = $request->input('date');
-        $user->gender = $request->input('gender');
+        $user->gender = $request->input('gender', 'o');
         $user->state = $request->input('state');
         $user->city = $request->input('city');
 

@@ -13,6 +13,7 @@
         "geekcom/validator-docs": "^3.5",
         "laravel/framework": "^6.20",
         "laravel/tinker": "^2.5",
+        "laravel/ui": "*",
         "tymon/jwt-auth": "1.0.2"
     },
     "require-dev": {

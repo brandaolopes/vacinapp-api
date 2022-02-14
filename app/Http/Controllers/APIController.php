@@ -27,7 +27,7 @@ public function login(Request $request)
         if (!$token = JWTAuth::attempt($input)) {
             return response()->json([
                 'success' => false,
-                'message' => 'Invalid Email or Password',
+                'message' => 'Login ou senha inválidos',
             ], 401);
         }
 
