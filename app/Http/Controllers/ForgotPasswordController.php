@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ResetPasswordRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
@@ -23,15 +24,11 @@ class ForgotPasswordController extends Controller
     }
 
 
-    public function reset() {
+    public function reset(ResetPasswordRequest $request) {
 
-        $credentials = request()->validate([
-            'email' => 'required|email',
-            'password' => 'required|string|max:25|confirmed',
-            'token' => 'required|string'
-        ]);
+        $credentials = request()->validate();
 
-        $email_password_status =  Password::reset($credentials, function($user, $password){
+        $email_password_status =  Password::reset($request->validated(), function($user, $password){
             $user->password = $password;
             $user->save();
         }); 
