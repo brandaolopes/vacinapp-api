@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Notifications\ResetPasswordNotification;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -11,6 +12,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
+    use CanResetPassword;
 
     /**
      * The attributes that are mass assignable.

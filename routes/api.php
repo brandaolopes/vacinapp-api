@@ -19,7 +19,7 @@ Route::post('login', 'ApiController@login');
 Route::post('/user', 'UserController@store');
 Route::post('password/email', 'ForgotPasswordController@forgot');
 Route::post('password/reset', 'ForgotPasswordController@reset');
-
+Route::get('password/reset', 'ForgotPasswordController@reset');
 
 // Rotas protegidas por autenticação:
 Route::group(['middleware' => 'auth.jwt'], function () {

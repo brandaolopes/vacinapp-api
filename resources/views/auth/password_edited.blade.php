@@ -64,16 +64,10 @@
 </head>
 <body>
 <div class="flex-center position-ref full-height">
-    <form class="form-container" action="api/password/reset" method="POST">
-        <h2>Vacinapp</h2>
-        <h4>Esqueceu a senha?</h4>
-
-        <input name="email" placeholder="Digite o email cadastrado" value="{{request()->get('email')}}">
-        <input name="password" placeholder="Digite a nova senha" type="password" class="form-control">
-        <input name="password_confirmation" placeholder="Confirme a nova senha" type="password" class="form-control">
-        <input hidden name="token" placeholder="token" value="{{request()->get('token')}}">
-
-        <button type="submit">Atualizar!</button>
+    <form class="form-container">
+        <h2>Vacinapp</h2><br>
+        <h4>Senha modificada com sucesso!</h4><br>
+        <p>Obrigado por usar nosso aplicativo</p>
     </form>
 </div>
 </body>
