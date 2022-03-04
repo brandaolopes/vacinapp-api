@@ -20,7 +20,7 @@ class ForgotPasswordController extends Controller
         "status" => __($reset_password_status)]);
         }
 
-        return response()->json(["message" => 'Ops... Algo deu errado',
+        return response()->json(["message" => 'Ops... Algo deu errado. Verifique se o e-mail foi digitado corretamente e tente novamente.',
         "status" => __($reset_password_status)]);
         
     }
@@ -30,7 +30,7 @@ class ForgotPasswordController extends Controller
 
         $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required|string|confirmed',
+            'password' => 'required|string|min:6|confirmed',
             'token' => 'required|string'
         ]);
 
