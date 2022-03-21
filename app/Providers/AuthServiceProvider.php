@@ -2,8 +2,12 @@
 
 namespace App\Providers;
 
+use Illuminate\Notifications\Notification;
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Notifications\Messages\MailMessage;
+
 
 class AuthServiceProvider extends ServiceProvider
 {
