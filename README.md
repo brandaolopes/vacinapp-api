@@ -1,78 +1,163 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://brandaolopes.net.br/#experience" target="_blank"><img src="./old/logo-fw.png" width="300"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+<p align="center"><img alt="GitHub branch checks state" src="https://img.shields.io/github/checks-status/brandaolopes/vacinapp-api/master?color=blue&style=social"><img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/brandaolopes/vacinapp-api"></p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# About VacinApp
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Have your vaccination records always handy. With our app you can store all the details about your vaccinations during all periods of your life in an easy way. No more keeping vaccination cards in drawers!
 
-## Learning Laravel
+- This API is designed to work with a [mobile application](https://play.google.com/store/apps/details?id=com.vacinapp). Please, [e-mail me](brandaolopes.dev@gmail.com) if you want to contribute.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Laravel Application
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+This is a Laravel 6 application.
 
-## Laravel Sponsors
+## Installation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+To install this application, you need to have PHP >= 7.2.0 and Composer installed on your machine.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+- Clone this repository or download the zip file.
+- Navigate to the project directory and run `composer install` to install the dependencies.
+- Copy the `.env.example` file to `.env` and fill in your database credentials and other settings.
+- Run `php artisan key:generate` to generate an application key.
+- Run `php artisan migrate` to create the database tables.
+- Run `npm install` to install the front-end dependencies.
+- Run `npm run dev` to compile the assets.
 
-## Contributing
+## Running the application
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+To run the application locally, you can use the `php artisan serve` command to start a development server at http://localhost:8000 (please note that default port can be different).
 
-## Code of Conduct
+Alternatively, you can configure your web server's document root to be the `public` directory and access the application from your browser.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Routes
 
-## Security Vulnerabilities
+- ### Authorization `Bearer Token`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    - `Token` <token>
+
+- ### Request Headers
+
+    - Accept `application\json`
+
+- ### User's Get Routes
+
+    #### - `/api/users` get data of all users;
+    #### - `/api/users/:id` get data of one user (id as parameter);
+    #### - `/api/me` get data of logged in user
+        Authorization `Bearer Token`
+        - `Token` <token>
+        Request Headers
+        - Accept `application\json`
+
+
+- ### User's Post Routes
+
+    #### - `/api/user` send data of an user to API (create user)
+        Body must content the following fields:
+        - name (string, required, max:255)
+        - surname (string, required, max:255)
+        - email (string, required, unique)
+        - password (string, required)
+        - cpf (numeric, required, size 11, unique)
+        - date of born (YYYY-MM-DD, required)
+        - gender (character, [m, f or o], max:1)
+        - state (string, max:2)
+        - city (string, max:255)
+
+    #### - `/api/login` log-in an user
+        Body (form data) must content the following fields:
+        - email (string, required, unique)
+        - password (string, required)
+
+    #### - `/api/logout` log-out an user
+        Authorization `Bearer Token`
+        - `Token` <token>
+        Request Headers
+        - Accept `application\json`
+
+- ### User's Patch Routes
+
+    #### -`/api/user/:id` edit data of an user (id as parameter);
+        Body must content the following fields:
+        - name (string, required, max:255)
+        - surname (string, required, max:255)
+        - email (string, required, unique)
+        - password (string, required)
+        - cpf (numeric, required, size 11, unique)
+        - date of born (YYYY-MM-DD, required)
+        - gender (character, [m, f or o], max:1)
+        - state (string, max:2)
+        - city (string, max:255)
+
+- ### User's Delete Route
+
+    #### -`/api/user/:id` delete an user (id as parameter)
+        Authorization `Bearer Token`
+        - `Token` <token>
+        Request Headers
+        - Accept `application\json`
+
+- ### Forgot Password Routes
+
+    #### - `/api/password/email` send email address to reset password
+        Body must content the following field:
+        - email (string, required, unique)
+
+- ### Vaccines' Get Routes
+    #### -`/api/vaccines` get data of all vaccines of the logged user
+        Authorization `Bearer Token`
+        - `Token` <token>
+        Request Headers
+        - Accept `application\json`
+
+    #### -`/api/vaccines/:id` get data of a vaccine (id as parameter)
+
+- ### Vaccines' Post Route
+    #### -`/api/vaccines` send data of a vaccine of the logged user to API
+        Body must content the following fields:
+        -title (string, required, max:255)
+        -description (string, max:255)
+        -batch (string, max:255)
+        -total_doses_number (numeric, required, min:1, max:10)
+        -dose (numeric, required, min:1, max:10)
+        -life_stage (enum, [newborn, child, teen, adult or elder])
+        -frequency (numeric) *in days
+        -created_at (YYYY-MM-DD HH:MM:SS)
+
+- ### Vaccines' Put Route
+    #### -`/api/vaccines/:id` edit data of a vaccine (id as parameter)
+        Body must content the following fields:
+        -title (string, required, max:255)
+        -description (string, max:255)
+        -batch (string, max:255)
+        -total_doses_number (numeric, required, min:1, max:10)
+        -dose (numeric, required, min:1, max:10)
+        -life_stage (enum, [newborn, child, teen, adult or elder])
+        -frequency (numeric) *in days
+        -created_at (YYYY-MM-DD HH:MM:SS)
+
+- ### Vaccines' Delete Route
+    #### -`/api/vaccines/:id` delete a vaccine (id as parameter)
+
+
+## Deployment
+
+To deploy the application to your server, you need to follow these steps:
+
+- Upload the project files to your server using FTP or SSH.
+- Set the permissions of the `storage` and `bootstrap/cache` directories to be writable by your web server.
+- Run `composer install --optimize-autoloader --no-dev` to install the dependencies and optimize the autoloader.
+- Run `php artisan config:cache` and `php artisan route:cache` to cache the configuration and routes.
+- Run `npm run production` to compile and minify the assets for production.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This application is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Contributing
+
+Thank you for considering contributing to the VacinApp! If you have any questions, suggestions or issues, please contact us at brandaolopes.dev@gmail.com
